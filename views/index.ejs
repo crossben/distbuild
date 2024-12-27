@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Endpoints disponibles</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        section {
+            margin: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #2c3e50;
+            color: white;
+        }
+
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- En-tête -->
+    <header>
+        <h1>Endpoints Disponibles</h1>
+        <p>Liste des endpoints et leurs méthodes</p>
+    </header>
+
+    <!-- Section des endpoints -->
+    <section>
+        <h2>Liste des Endpoints</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Méthode</th>
+                    <th>Endpoint</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% routes.forEach(function(route) { %>
+                    <tr>
+                        <td><%= route.method %></td>
+                        <td <%= route.method === "get" ? 'style="color: green;"' : '' %>><%= route.path %></td>
+                    </tr>
+                <% }); %>
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>&copy; <%= new Date().getFullYear() %> Endpoints Disponibles</p>
+    </footer>
+</body>
+
+</html>
